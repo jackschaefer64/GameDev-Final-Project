@@ -11,7 +11,7 @@ public class ChasePlayer : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        Light myLight = GetComponent<Light>();
+        myLight = GetComponent<Light>();
     }
 
     // Update is called once per frame
@@ -22,13 +22,13 @@ public class ChasePlayer : MonoBehaviour
         if(distanceFromPlayer <= 10.0f)
         {
             GetComponent<Wander>().enabled = false;
-            //myLight.color = Color.red;
-            myLight.color -= (Color.red / 2.0f) * Time.deltaTime;
+            myLight.color = Color.red;
+            //myLight.color -= (Color.red / 2.0f) * Time.deltaTime;
             agent.SetDestination(playerTransform.position);
         }
         else
         {
-            //myLight.color = Color.white;
+            myLight.color = Color.white;
             GetComponent<Wander>().enabled = true;
         }
         
