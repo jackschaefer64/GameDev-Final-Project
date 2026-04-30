@@ -20,11 +20,12 @@ public class StickCollection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Stick"))
+        if (other.gameObject.CompareTag("Player"))
         {
             _stickcount += 1;
-            Destroy(other.gameObject);
+            
             _stickText.text = "Sticks: " + _stickcount.ToString();
+            Destroy(this.gameObject);
         }
     }
 
